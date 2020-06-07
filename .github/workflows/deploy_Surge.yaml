@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: Deploying Website
+name: Deploying Website (Wng)
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
@@ -25,9 +25,11 @@ jobs:
       uses: actions/setup-node@v2-beta
       with:
         node-version: 12
-    
+
+    # Runs a set of commands using the runners shell
     - name: Install Surge
-      run: npm install -g surge
+      run: npm install --global surge
     - name: Run Surge
-      run: Surge ./ Assignment01Eng.surge.sh --token "9c3ccccb4d2030a2e56942725e41a5ab"
+      run: surge ./ Assignment01Eng.surge.sh --token $ {{ secrets.MY_TOKEN_NAME }}
       
+ 
